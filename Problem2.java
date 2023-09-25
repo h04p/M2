@@ -1,3 +1,9 @@
+/*
+ * Problem 2
+ * UCID : hp542
+*/
+
+
 import java.util.Arrays;
 
 public class Problem2 {
@@ -17,13 +23,12 @@ public class Problem2 {
         System.out.println("Processing Array:" + Arrays.toString(arr));
         double total = 0;
         String totalOutput = "";
-        //hint: use the arr variable; don't diretly use the a1-a4 variables
-        //TODO add/edit code here
-       
-        //set the double to a string variable
-        //TODO ensure rounding is to two decimal places (i.e., 0.10, 0.01, 1.00)
-        totalOutput = total+"";
-        //end add/edit section
+    // code to add the elements of the array
+        for(double i : arr){
+            total += i;
+        }
+        // code to print the output in the required format
+        totalOutput = String.format("%.2f", total);
         System.out.println("Total is " + totalOutput);
         System.out.println("End process");
     }
