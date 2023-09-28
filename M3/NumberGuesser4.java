@@ -1,3 +1,9 @@
+/*
+ * Problem 1
+ * UCID : hp542
+*/
+
+
 package M3;
 
 import java.io.File;
@@ -127,16 +133,48 @@ public class NumberGuesser4 {
             return;
         }
         System.out.println("You guessed " + guess);
+        //calculating the diffeence of the number to be guesed and guessed number
+        int difference = Math.abs(guess - number);
+        String indicator = getIndicator(difference);
+
         if (guess == number) {
             win();
             pickNewRandom = true;
         } else {
-            System.out.println("That's wrong");
+            if(guess > number)
+            {
+                //displaying the indicators
+                System.out.println("Indicator: " + indicator);
+                System.out.println("That's wrong");
+
+                //giving hint wheater the inout is higher or lower
+                System.out.println("the number to guess is lower than the number you guessed now");
+
+                
+            }
+            else{
+                //displaying the indicators
+                System.out.println("Indicator: " + indicator);
+                System.out.println("That's wrong");
+                //giving hint wheater the input is higher or lower
+                System.out.println("HINT : the number to guess is higher than the number you guessed now");
+            }
+            
             strikes++;
             if (strikes >= maxStrikes) {
                 lose();
                 pickNewRandom = true;
             }
+        }
+    }
+// method defined to show the indicators
+    private String getIndicator(int difference) {
+        if (difference >= 10) {
+            return "Cold";
+        } else if (difference >= 5) {
+            return "Warm";
+        } else {
+            return "Hot";
         }
     }
 
